@@ -1,0 +1,28 @@
+#reading-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2147483647;
+  width: 0;
+  height: 3px;
+  opacity: 0;
+  background: linear-gradient(to right, #f43f5e, #f59e0b, #10b981, #3b82f6);
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.4);
+  transition: width 0.15s linear, opacity 0.35s ease;
+}
+
+.cnblog-click-word {
+  position: absolute;
+  z-index: 2147483647;
+  font-weight: 700;
+  pointer-events: none;
+  user-select: none;
+  opacity: 1;
+  transform: translate(-50%, -6px);
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.cnblog-click-word.is-rising {
+  transform: translate(-50%, -70px);
+  opacity: 0;
+}
