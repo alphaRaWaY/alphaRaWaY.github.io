@@ -1,7 +1,17 @@
 <script setup lang="ts">
 const scriptClose = '</' + 'script>'
 const headerSnippet = `<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/css/main.css?v=20260413">
-<script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/js/main.js?v=20260413" defer>${scriptClose}`
+<script>
+  window.CNBLOG_THEME_CONFIG = {
+    wordsUrl: "https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/words.txt",
+    neteasePlaylistId: "17737608590",
+    enableMusic: true,
+    playerTheme: "#2D8CF0"
+  };
+${scriptClose}
+<script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/js/main.js?v=20260413" defer>${scriptClose}
+
+<div id="loading-box"> ...loading html... </div>`
 </script>
 
 <template>
@@ -16,9 +26,13 @@ const headerSnippet = `<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/
   <section class="card">
     <h2>Directory</h2>
     <pre><code>public/
+  words.txt
   cnblog-assets/
     css/main.css
     js/main.js
+    js/APlayer.min.js
+    js/Meting.min.js
+    css/APlayer.min.css
 snippets/
   cnblog-header.html
   cnblog-footer.html</code></pre>

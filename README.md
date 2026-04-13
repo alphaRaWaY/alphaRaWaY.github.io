@@ -1,4 +1,6 @@
-# alphaRaWaY.github.io
+﻿# alphaRaWaY.github.io
+
+[English](./README.md) | [中文](./README-zh.md)
 
 This repository serves two goals:
 
@@ -25,6 +27,8 @@ Cnblog assets are in:
 
 - `public/cnblog-assets/css/main.css`
 - `public/cnblog-assets/js/main.js`
+- `public/words.txt`
+- `public/cnblog-assets/legacy/*` (original logic backup)
 - `snippets/cnblog-header.html`
 - `snippets/cnblog-footer.html`
 
