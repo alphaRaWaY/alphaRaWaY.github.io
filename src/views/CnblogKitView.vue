@@ -1,55 +1,36 @@
-<script setup lang="ts">
-const scriptClose = '</' + 'script>'
-const headerSnippet = `<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/css/main.css?v=20260413">
-<script>
-  window.CNBLOG_THEME_CONFIG = {
-    wordsUrl: "https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/words.txt",
-    neteasePlaylistId: "17737608590",
-    enableMusic: true,
-    playerTheme: "#2D8CF0"
-  };
-${scriptClose}
-<script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/js/main.js?v=20260413" defer>${scriptClose}
-
-<div id="loading-box"> ...loading html... </div>`
-</script>
-
 <template>
   <section>
     <h1>Cnblog Kit</h1>
     <p class="lead">
-      First version keeps Cnblog integration very thin: only external links in Cnblog backend,
-      while actual code stays in this repo.
+      Keep Cnblog backend light. Maintain CSS/JS in this repo and only paste external links in
+      Cnblog header html.
     </p>
   </section>
 
   <section class="card">
-    <h2>Directory</h2>
-    <pre><code>public/
-  words.txt
-  cnblog-assets/
-    css/main.css
-    js/main.js
-    js/APlayer.min.js
-    js/Meting.min.js
-    css/APlayer.min.css
-snippets/
-  cnblog-header.html
-  cnblog-footer.html</code></pre>
+    <h2>Use These Files</h2>
+    <pre><code>snippets/cnblog-header.html
+snippets/cnblog-footer.html
+public/cnblog-assets/css/main.css
+public/cnblog-assets/js/main.js
+public/words.txt</code></pre>
   </section>
 
   <section class="card">
-    <h2>Header Snippet (copy to Cnblog)</h2>
-    <pre><code>{{ headerSnippet }}</code></pre>
+    <h2>Routing Note</h2>
+    <p>
+      GitHub Pages does not provide history-mode fallback by default. This site uses hash routing,
+      so the Cnblog page is:
+    </p>
+    <pre><code>https://alpharaway.github.io/#/cnblog-kit</code></pre>
   </section>
 
   <section class="card">
-    <h2>Notes</h2>
-    <ul>
-      <li>Use HTTPS links only.</li>
-      <li>Prefer version tags instead of <code>@main</code> for production.</li>
-      <li>Keep footer html empty in first version unless you need static markup.</li>
-    </ul>
+    <h2>Production Tip</h2>
+    <p>
+      For Cnblog external links, prefer a fixed release tag (for example <code>@v1.0.0</code>)
+      instead of <code>@main</code>.
+    </p>
   </section>
 </template>
 
@@ -78,10 +59,5 @@ pre {
   color: #d8e3ff;
   border-radius: 10px;
   padding: 0.85rem;
-}
-
-ul {
-  margin: 0;
-  padding-left: 1.1rem;
 }
 </style>

@@ -38,6 +38,12 @@ In Cnblog backend, keep only external references and avoid maintaining long inli
 
 The workflow file `.github/workflows/deploy.yml` deploys `dist/` to GitHub Pages on push to `main`.
 
+This site uses hash routing for GitHub Pages compatibility. Example:
+
+```text
+https://alpharaway.github.io/#/cnblog-kit
+```
+
 For production Cnblog external links, prefer fixed tags over `@main`, for example:
 
 ```html

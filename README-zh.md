@@ -38,6 +38,12 @@ npm run preview
 
 `.github/workflows/deploy.yml` 会在 `main` 分支更新后自动部署 `dist/` 到 GitHub Pages。
 
+为了兼容 GitHub Pages，本项目使用 hash 路由，示例：
+
+```text
+https://alpharaway.github.io/#/cnblog-kit
+```
+
 博客园生产环境建议使用固定 tag，而不是 `@main`，示例：
 
 ```html

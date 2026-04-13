@@ -1,19 +1,17 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import CnblogKitView from '../views/CnblogKitView.vue'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: [
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      component: () => import('../views/HomeView.vue'),
     },
     {
       path: '/cnblog-kit',
       name: 'cnblog-kit',
-      component: CnblogKitView,
+      component: () => import('../views/CnblogKitView.vue'),
     },
   ],
 })
