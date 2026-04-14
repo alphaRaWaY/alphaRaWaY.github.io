@@ -15,10 +15,26 @@
   }
 
   function getWordsUrl() {
-    if (config.wordsUrl) return config.wordsUrl
+    if (config.wordsUrl) return resolvePublicUrl(config.wordsUrl)
     var assetRoot = getAssetRootUrl()
     if (!assetRoot) return "/words.txt"
     return assetRoot.replace(/\/cnblog-assets$/, "") + "/words.txt"
+  }
+
+  function isAbsoluteUrl(url) {
+    return /^(https?:)?\/\//i.test(url) || /^data:/i.test(url)
+  }
+
+  function resolvePublicUrl(url) {
+    if (!url) return ""
+    if (isAbsoluteUrl(url)) return url
+
+    var assetRoot = getAssetRootUrl()
+    if (!assetRoot) return url
+
+    var publicRoot = assetRoot.replace(/\/cnblog-assets$/, "")
+    if (url.charAt(0) === "/") return publicRoot + url
+    return publicRoot + "/" + url
   }
 
   function randomRgb() {
@@ -202,9 +218,85 @@
     })
   }
 
+  function createNoticeCardHtml(notice) {
+    var links = Array.isArray(notice.links)
+      ? notice.links
+          .slice(0, 3)
+          .map(function (item) {
+            if (!item || !item.href || !item.text) return ""
+            return (
+              '<a class="cnb-notice-link" href="' +
+              item.href +
+              '" target="_blank" rel="noreferrer">' +
+              item.text +
+              "</a>"
+            )
+          })
+          .join("")
+      : ""
+
+    var coverUrl = resolvePublicUrl(notice.coverImage || "")
+    var avatarUrl = resolvePublicUrl(notice.avatarImage || "")
+    var qrcodeUrl = resolvePublicUrl(notice.qrcodeImage || "")
+
+    var cover = coverUrl ? ' style="background-image:url(\'' + coverUrl + '\')"' : ""
+    var avatar = avatarUrl
+      ? '<img class="cnb-notice-avatar" src="' +
+        avatarUrl +
+        '" alt="avatar" referrerpolicy="no-referrer" crossorigin="anonymous">'
+      : ""
+    var qrcode = qrcodeUrl
+      ? '<img class="cnb-notice-qrcode" src="' +
+        qrcodeUrl +
+        '" alt="qrcode" referrerpolicy="no-referrer" crossorigin="anonymous">'
+      : ""
+
+    return (
+      '<div id="cnb-notice-card" class="cnb-notice-card">' +
+      '<div class="cnb-notice-cover"' +
+      cover +
+      "></div>" +
+      '<div class="cnb-notice-main">' +
+      avatar +
+      '<div class="cnb-notice-name">' +
+      (notice.name || "我的博客") +
+      "</div>" +
+      '<div class="cnb-notice-desc">' +
+      (notice.desc || "") +
+      "</div>" +
+      '<div class="cnb-notice-links">' +
+      links +
+      "</div>" +
+      qrcode +
+      "</div>" +
+      "</div>"
+    )
+  }
+
+  function initSidebarNotice() {
+    var notice = (config.notice || {})
+    if (notice.enabled === false) return
+    if (document.getElementById("cnb-notice-card")) return
+
+    var host =
+      document.getElementById("blog-news") ||
+      document.getElementById("sidebar_news") ||
+      document.querySelector("#sideBarMain")
+
+    if (!host) return
+
+    var wrapper = document.createElement("div")
+    wrapper.innerHTML = createNoticeCardHtml(notice)
+    var card = wrapper.firstElementChild
+    if (!card) return
+
+    host.insertAdjacentElement("afterbegin", card)
+  }
+
   function boot() {
     initLoadingAnimation()
     initMusicPlayer()
+    initSidebarNotice()
 
     loadWords().then(function (list) {
       words = list

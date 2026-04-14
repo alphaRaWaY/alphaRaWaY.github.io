@@ -86,3 +86,13 @@ https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@v1.0.0/public/cnblog
   };
 </script>
 ```
+
+### 公告卡片图片清单
+
+如果启用 `window.CNBLOG_THEME_CONFIG.notice`，建议准备三张图：
+
+1. `coverImage`：顶部横幅图，建议 `1200x300` 或更宽
+2. `avatarImage`：头像图，建议正方形 `400x400`
+3. `qrcodeImage`：二维码图，建议正方形 `300x300`
+
+建议把这些图片放到可长期访问的 HTTPS 地址（例如仓库 `public/` 后经 jsDelivr 分发）。

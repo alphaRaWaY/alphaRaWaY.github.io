@@ -1,0 +1,128 @@
+:root {
+  --cnb-accent: #4f8cc9;
+  --cnb-bg: #f6f8fb;
+  --cnb-card: #ffffff;
+  --cnb-text: #2f3441;
+  --cnb-muted: #697386;
+  --cnb-shadow: 0 8px 24px rgba(33, 58, 88, 0.08);
+  --cnb-radius: 14px;
+}
+
+body {
+  background: radial-gradient(circle at 12% 12%, #eef6ff, transparent 30%),
+    radial-gradient(circle at 88% 18%, #eefbf7, transparent 28%),
+    var(--cnb-bg);
+}
+
+#home {
+  width: 78%;
+  max-width: 1080px;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 20px;
+  box-shadow: var(--cnb-shadow);
+  backdrop-filter: blur(4px);
+}
+
+#mainContent .forFlow .day,
+#mainContent .entrylistItem {
+  background: var(--cnb-card);
+  border: 1px solid #e7edf5;
+  border-radius: var(--cnb-radius);
+  box-shadow: 0 4px 14px rgba(72, 90, 117, 0.06);
+  padding: 18px 20px 22px;
+  margin-bottom: 18px;
+}
+
+.postTitle a:link,
+.entrylistPosttitle a:link {
+  color: var(--cnb-text);
+}
+
+.postDesc,
+.entrylistItemPostDesc {
+  color: var(--cnb-muted);
+}
+
+#sideBar {
+  padding-left: 14px;
+}
+
+.cnb-notice-card {
+  background: var(--cnb-card);
+  border: 1px solid #e7edf5;
+  border-radius: var(--cnb-radius);
+  overflow: hidden;
+  box-shadow: var(--cnb-shadow);
+  margin-bottom: 18px;
+}
+
+.cnb-notice-cover {
+  height: 88px;
+  background-size: cover;
+  background-position: center;
+}
+
+.cnb-notice-main {
+  padding: 12px;
+}
+
+.cnb-notice-avatar {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  margin-top: -44px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
+}
+
+.cnb-notice-name {
+  margin-top: 8px;
+  color: var(--cnb-text);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.cnb-notice-desc {
+  margin-top: 6px;
+  color: var(--cnb-muted);
+  line-height: 1.55;
+  font-size: 13px;
+}
+
+.cnb-notice-links {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.cnb-notice-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: #edf4ff;
+  color: #2a5d9b;
+  text-decoration: none !important;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.cnb-notice-qrcode {
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #eef1f6;
+}
+
+@media (max-width: 999px) {
+  #home {
+    width: 94%;
+  }
+
+  #sideBar {
+    padding-left: 0;
+  }
+}
