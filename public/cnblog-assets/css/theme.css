@@ -56,6 +56,14 @@ body {
   margin-bottom: 18px;
 }
 
+.cnb-notice-card.cnb-notice-floating {
+  position: fixed;
+  right: 18px;
+  top: 92px;
+  width: 280px;
+  z-index: 2147483000;
+}
+
 .cnb-notice-cover {
   height: 88px;
   background-size: cover;
@@ -124,5 +132,11 @@ body {
 
   #sideBar {
     padding-left: 0;
+  }
+
+  .cnb-notice-card.cnb-notice-floating {
+    position: static;
+    width: auto;
+    margin: 10px;
   }
 }

@@ -281,22 +281,44 @@
     var host =
       document.getElementById("blog-news") ||
       document.getElementById("sidebar_news") ||
-      document.querySelector("#sideBarMain")
-
-    if (!host) return
+      document.querySelector("#sideBarMain") ||
+      document.querySelector("#sideBar") ||
+      document.querySelector(".sidebar")
 
     var wrapper = document.createElement("div")
     wrapper.innerHTML = createNoticeCardHtml(notice)
     var card = wrapper.firstElementChild
     if (!card) return
 
-    host.insertAdjacentElement("afterbegin", card)
+    if (host) {
+      host.insertAdjacentElement("afterbegin", card)
+      return
+    }
+
+    card.classList.add("cnb-notice-floating")
+    document.body.appendChild(card)
+  }
+
+  function initSidebarNoticeWithRetry() {
+    var retry = 0
+    var maxRetry = 20
+    var timer = setInterval(function () {
+      if (document.getElementById("cnb-notice-card")) {
+        clearInterval(timer)
+        return
+      }
+      initSidebarNotice()
+      retry += 1
+      if (retry >= maxRetry) {
+        clearInterval(timer)
+      }
+    }, 500)
   }
 
   function boot() {
     initLoadingAnimation()
     initMusicPlayer()
-    initSidebarNotice()
+    initSidebarNoticeWithRetry()
 
     loadWords().then(function (list) {
       words = list
