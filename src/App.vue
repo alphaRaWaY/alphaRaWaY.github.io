@@ -4,6 +4,7 @@
       <div class="brand">alphaRaWaY</div>
       <nav class="nav">
         <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/posts">Posts</RouterLink>
         <RouterLink to="/cnblog-kit">Cnblog Kit</RouterLink>
       </nav>
     </header>

@@ -34,6 +34,28 @@ npm run preview
 
 建议在博客园后台仅保留外链引用，不再维护大段内联 CSS/JS。
 
+## Posts 文章维护
+
+项目会自动读取根目录 `posts/*.md`，并用第三方库渲染：
+
+- `gray-matter`：解析 front matter
+- `markdown-it`：渲染 Markdown 为 HTML
+
+支持的 front matter 字段示例：
+
+```md
+---
+title: 文章标题
+date: 2026-04-14
+tags:
+  - Vue
+  - 博客
+summary: 列表页摘要
+---
+```
+
+如果正文里写了 `<!--more-->`，会优先用它之前的内容作为摘要。
+
 ## 部署
 
 `.github/workflows/deploy.yml` 会在 `main` 分支更新后自动部署 `dist/` 到 GitHub Pages。

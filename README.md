@@ -34,6 +34,28 @@ Cnblog assets are in:
 
 In Cnblog backend, keep only external references and avoid maintaining long inline scripts.
 
+## Posts
+
+The app auto-loads `posts/*.md` and renders with:
+
+- `gray-matter` for front matter parsing
+- `markdown-it` for Markdown rendering
+
+Front matter example:
+
+```md
+---
+title: Post Title
+date: 2026-04-14
+tags:
+  - Vue
+  - Blog
+summary: Summary text for list page
+---
+```
+
+If the content includes `<!--more-->`, text before it is used as the summary first.
+
 ## Deployment
 
 The workflow file `.github/workflows/deploy.yml` deploys `dist/` to GitHub Pages on push to `main`.

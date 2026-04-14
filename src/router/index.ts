@@ -13,6 +13,16 @@ const router = createRouter({
       name: 'cnblog-kit',
       component: () => import('../views/CnblogKitView.vue'),
     },
+    {
+      path: '/posts',
+      name: 'posts',
+      component: () => import('../views/PostListView.vue'),
+    },
+    {
+      path: '/posts/:slug',
+      name: 'post-detail',
+      component: () => import('../views/PostDetailView.vue'),
+    },
   ],
 })
 
