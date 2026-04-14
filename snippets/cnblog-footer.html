@@ -1,19 +1,27 @@
-﻿<style id="ceshicss">
+﻿<!--
+  文件名：cnblog-footer.html
+  按你的要求：此文件用于“页脚Html代码”
+  使用方式：粘贴到 博客园后台 -> 设置 -> 页脚Html代码
+-->
+
+<style id="ceshicss">
 @media (max-width: 767px){
   #set_btn_box {width: 100vw;left: 0;right: 0;bottom: 0;background: hsla(0,0%,100%,.6);height: 49px;display: flex;justify-content: space-between;align-items: center;padding: 12px 40px;border-top: 1px solid #e8e8e8;box-sizing: border-box;}
   .set_btn {margin-top: 0;}
   .set_btn.fly_top.fadeIn.animated {position: absolute;right: 10px;bottom: 60px;}
-  .container{bottom:50px}
+  .container {bottom: 50px;}
 }
-#mainContent{width:90%}
+#mainContent {width: 90%;}
 </style>
 
+<script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/jquery2.min.js?v=20260414"></script>
 <script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/popper.min.js?v=20260414"></script>
-<link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/animate.min.css?v=20260414'>
+<script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/tippy.js?v=20260414"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/animate.min.css?v=20260414">
 <script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/font_1825850_klax1ao4o6.js?v=20260414"></script>
 <script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/three.min.js?v=20260414"></script>
 <script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/star.js?v=20260414"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/OwO.min.css?v=20260414" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/OwO.min.css?v=20260414">
 <script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/OwO.min.js?v=20260414"></script>
 <script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/cute-cnblogs3.js?v=20260414"></script>
 <script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/monitoring2.js?v=20260414"></script>
@@ -24,6 +32,7 @@ miluframe({
   custom: [
     { name: '首页', link: 'https://www.cnblogs.com/alphaRaWaY/', istarget: false },
     { name: '归档', link: 'https://www.cnblogs.com/alphaRaWaY/archive/', istarget: false },
+    { name: '友链', link: 'https://www.cnblogs.com/alphaRaWaY/p/19866343', istarget: false },
     { name: '联系', link: 'https://msg.cnblogs.com/send/alphaRaWaY', istarget: true },
     { name: 'GitHub', link: 'https://github.com/alphaRaWaY', istarget: true }
   ],
@@ -31,9 +40,14 @@ miluframe({
     name: 'alphaRaWaY',
     link: 'https://www.cnblogs.com/alphaRaWaY/',
     headurl: 'https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/img/avatar.png',
-    introduction: '持续学习，认真生活。'
+    introduction: '那一天，与我期望的那个世界，稍微有些不同。'
   },
-  unionbox: [],
+  unionbox: [{
+    name: 'alphaRaWaY',
+    introduction: '即使那样，我依然生存着，在这广阔的世界。',
+    url: 'https://www.cnblogs.com/alphaRaWaY/',
+    headurl: 'https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/img/avatar.png'
+  }],
   details: [
     { field: 'name', literal: '昵称' },
     { field: 'introduction', literal: '标语' },
@@ -44,5 +58,7 @@ miluframe({
   cuteicon: ['icon-caomei','icon-boluo','icon-huolongguo','icon-chengzi','icon-hamigua','icon-lizhi'],
   isGratuity: false,
   gratuity: ''
-})
+});
 </script>
+
+<!-- 保留点击台词，不接入 mouse-click.js 鼠标拖尾特效 -->

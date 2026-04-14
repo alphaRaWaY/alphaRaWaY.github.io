@@ -1,62 +1,35 @@
-﻿<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/css/main.css?v=20260414">
+﻿<!--
+  文件名：cnblog-header.html
+  按你的要求：此文件用于“页首Html代码”
+  使用方式：粘贴到 博客园后台 -> 设置 -> 页首Html代码
+-->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/css/main.css?v=20260414">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/cute-cnblogs2.css?v=20260414">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/tippy.min.css?v=20260414">
 
 <script>
-  window.CNBLOG_THEME_CONFIG = {
-    wordsUrl: "https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/words.txt",
-    neteasePlaylistId: "17737608590",
-    enableMusic: true,
-    playerTheme: "#2D8CF0",
-    notice: { enabled: false }
-  };
+window.CNBLOG_THEME_CONFIG = {
+  wordsUrl: 'https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/words.txt',
+  neteasePlaylistId: '17737608590',
+  enableMusic: true,
+  playerTheme: '#2D8CF0',
+  notice: { enabled: true }
+};
 </script>
 <script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/js/main.js?v=20260414" defer></script>
 
 <div id="set_btn_box">
-  <div class="set_btn fly_top fadeIn animated">
-    <svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhiding"></use></svg>
-  </div>
-  <div class="set_btn article_icon_btn catalogue_btn">
-    <svg class="icon" aria-hidden="true" style="color:#97A1A7"><use xlink:href="#icon-dagang"></use></svg>
-  </div>
-  <div class="set_btn article_icon_btn comment">
-    <a href="#comment_form_container"><svg class="icon" aria-hidden="true" style="color:#97A1A7"><use xlink:href="#icon-linedesign-01"></use></svg></a>
-  </div>
-  <div class="set_btn skin_btn">
-    <svg class="icon" aria-hidden="true" style="color:#97A1A7"><use xlink:href="#icon-pifu"></use></svg>
-  </div>
-  <div class="set_btn gratuity">
-    <svg class="icon" aria-hidden="true" style="color:#97A1A7"><use xlink:href="#icon-dashang"></use></svg>
-  </div>
-  <div class="set_btn article_icon_btn artice_recommend">
-    <svg class="icon" aria-hidden="true" style="color:#97A1A7"><use xlink:href="#icon-tuijian2"></use></svg>
-  </div>
+  <div class="set_btn fly_top fadeIn animated"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhiding"></use></svg></div>
+  <div class="set_btn article_icon_btn catalogue_btn"><svg class="icon" aria-hidden="true" style="color:#97A1A7"><use xlink:href="#icon-dagang"></use></svg></div>
+  <div class="set_btn article_icon_btn comment"><a href="#comment_form_container"><svg class="icon" aria-hidden="true" style="color:#97A1A7"><use xlink:href="#icon-linedesign-01"></use></svg></a></div>
+  <div class="set_btn skin_btn"><svg class="icon" aria-hidden="true" style="color:#97A1A7"><use xlink:href="#icon-pifu"></use></svg></div>
+  <div class="set_btn gratuity"><svg class="icon" aria-hidden="true" style="color:#97A1A7"><use xlink:href="#icon-dashang"></use></svg></div>
+  <div class="set_btn article_icon_btn artice_recommend"><svg class="icon" aria-hidden="true" style="color:#97A1A7"><use xlink:href="#icon-tuijian2"></use></svg></div>
   <canvas id="thumsCanvas" width="200" height="400" style="width:100px;height:200px"></canvas>
-  <div class="set_btn catalogue">
-    <svg class="icon" aria-hidden="true" style="color:#97A1A7"><use xlink:href="#icon-cebianlan-"></use></svg>
-  </div>
+  <div class="set_btn catalogue"><svg class="icon" aria-hidden="true" style="color:#97A1A7"><use xlink:href="#icon-cebianlan-"></use></svg></div>
 </div>
 <script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/canvas2.js?v=20260414"></script>
-
-<script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/jquery2.min.js?v=20260414"></script>
-<script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/tippy.js?v=20260414"></script>
-<script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/milusidebar.js?v=20260414"></script>
-<script>
-  milusidebar({
-    names: 'alphaRaWaY',
-    notice: '<b>温馨提示</b><span>欢迎来到我的博客园</span>',
-    headerUrl: 'https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/img/cover.jpg',
-    follow: '',
-    sidebarInfo: [[
-      { icon: '#icon-github1', url: 'https://github.com/alphaRaWaY', title: 'GitHub' },
-      { icon: '#icon-bilibili', url: 'https://space.bilibili.com/', title: 'Bilibili' },
-      { icon: '#icon-QQ', url: 'http://wpa.qq.com/msgrd?v=3&uin=0&site=qq&menu=yes', title: 'QQ' }
-    ]],
-    signature: '持续学习，认真生活',
-    portrait: 'https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/img/avatar.png'
-  })
-</script>
 
 <div id="loading-box">
   <div class="loading-left-bg"></div>
@@ -68,7 +41,7 @@
       <div class="inner three"></div>
     </div>
     <div class="loading-word">
-      <p class="loading-title" id="loading-title">欢迎回家 OvO</p>
+      <p class="loading-title" id="loading-title">如果你把这句话看完了，那你大概是卡了喵(>V<)~⭐</p>
       <span id="loading-text">Loading...</span>
     </div>
   </div>

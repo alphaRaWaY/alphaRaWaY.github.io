@@ -191,22 +191,22 @@
 
     appendCss(assetRoot + "/css/APlayer.min.css")
 
-    if (!document.getElementById("player")) {
-      var player = document.createElement("div")
-      player.id = "player"
-      player.className = "aplayer aplayer-withlist aplayer-fixed"
-      player.setAttribute("data-id", config.neteasePlaylistId || "17737608590")
-      player.setAttribute("data-server", "netease")
-      player.setAttribute("data-type", "playlist")
-      player.setAttribute("data-order", "random")
-      player.setAttribute("data-fixed", "true")
-      player.setAttribute("data-listfolded", "true")
-      player.setAttribute("data-theme", config.playerTheme || "#2D8CF0")
-      document.body.appendChild(player)
-    }
-
     appendScript(jsBase + "/APlayer.min.js", function () {
       appendScript(jsBase + "/Meting.min.js", function () {
+        if (!document.querySelector('meting-js[data-cnblog-player="1"]')) {
+          var player = document.createElement("meting-js")
+          player.setAttribute("data-cnblog-player", "1")
+          player.setAttribute("server", "netease")
+          player.setAttribute("type", "playlist")
+          player.setAttribute("id", config.neteasePlaylistId || "17737608590")
+          player.setAttribute("order", "random")
+          player.setAttribute("fixed", "true")
+          player.setAttribute("list-folded", "true")
+          player.setAttribute("theme", config.playerTheme || "#2D8CF0")
+          player.setAttribute("autoplay", "true")
+          document.body.appendChild(player)
+        }
+
         var ref = setInterval(function () {
           var playBtn = document.querySelector(".aplayer-play")
           if (playBtn) {
