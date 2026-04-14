@@ -1,12 +1,22 @@
-;(function () {
+﻿;(function () {
   var config = window.CNBLOG_THEME_CONFIG || {}
   var words = []
   var wordIndex = 0
 
   function getJsBaseUrl() {
     var script = document.currentScript
-    if (!script || !script.src) return ""
-    return script.src.replace(/\/main\.js(\?.*)?$/, "")
+    if (script && script.src) return script.src.replace(/\/main\.js(\?.*)?$/, "")
+
+    var scripts = document.querySelectorAll("script[src]")
+    for (var i = scripts.length - 1; i >= 0; i -= 1) {
+      var src = scripts[i].getAttribute("src") || ""
+      if (/\/cnblog-assets\/js\/main\.js(\?.*)?$/.test(src) || /\/main\.js(\?.*)?$/.test(src)) {
+        var a = document.createElement("a")
+        a.href = src
+        return a.href.replace(/\/main\.js(\?.*)?$/, "")
+      }
+    }
+    return ""
   }
 
   function getAssetRootUrl() {
@@ -154,9 +164,12 @@
   }
 
   function isDesktopMusicEnabled() {
-    var isDesktop = window.matchMedia("(min-width: 1000px)").matches
     var allowMusic = config.enableMusic !== false
-    return isDesktop && allowMusic
+    if (!allowMusic) return false
+    if (config.musicDesktopOnly === true) {
+      return window.matchMedia("(min-width: 1000px)").matches
+    }
+    return true
   }
 
   function appendCss(href) {
@@ -259,7 +272,7 @@
       '<div class="cnb-notice-main">' +
       avatar +
       '<div class="cnb-notice-name">' +
-      (notice.name || "我的博客") +
+      (notice.name || "鎴戠殑鍗氬") +
       "</div>" +
       '<div class="cnb-notice-desc">' +
       (notice.desc || "") +

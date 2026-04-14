@@ -25,13 +25,36 @@
 <script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/OwO.min.js?v=20260414"></script>
 <script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/cute-cnblogs3.js?v=20260414"></script>
 <script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/monitoring2.js?v=20260414"></script>
+<script>
+window.CNBLOG_THEME_CONFIG = {
+  wordsUrl: 'https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/words.txt',
+  neteasePlaylistId: '17737608590',
+  enableMusic: false,
+  musicDesktopOnly: false,
+  playerTheme: '#2D8CF0',
+  notice: { enabled: true }
+};
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/css/APlayer.min.css?v=20260414-8">
+<div id="player"
+     class="aplayer aplayer-withlist aplayer-fixed"
+     data-id="17737608590"
+     data-server="netease"
+     data-type="playlist"
+     data-order="random"
+     data-fixed="true"
+     data-listfolded="true"
+     data-theme="#2D8CF0"></div>
+<script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/js/APlayer.min.js?v=20260414-8"></script>
+<script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/js/Meting.min.js?v=20260414-8"></script>
+<script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/js/main.js?v=20260414-7" defer></script>
 
 <script>
 miluframe({
   Youself: 'https://www.cnblogs.com/alphaRaWaY/',
   custom: [
     { name: '首页', link: 'https://www.cnblogs.com/alphaRaWaY/', istarget: false },
-    { name: '归档', link: 'https://www.cnblogs.com/alphaRaWaY/archive/', istarget: false },
+    { name: '技能树', link: 'https://alpharaway.github.io/', istarget: true },
     { name: '友链', link: 'https://www.cnblogs.com/alphaRaWaY/p/19866343', istarget: false },
     { name: '联系', link: 'https://msg.cnblogs.com/send/alphaRaWaY', istarget: true },
     { name: 'GitHub', link: 'https://github.com/alphaRaWaY', istarget: true }
@@ -55,7 +78,7 @@ miluframe({
     { field: 'headurl', literal: '头像地址' }
   ],
   logoimg: 'https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/img/avatar.png',
-  cuteicon: ['icon-caomei','icon-boluo','icon-huolongguo','icon-chengzi','icon-hamigua','icon-lizhi'],
+  // cuteicon: ['icon-caomei','icon-boluo','icon-huolongguo','icon-chengzi','icon-hamigua','icon-lizhi'],
   isGratuity: false,
   gratuity: ''
 });
