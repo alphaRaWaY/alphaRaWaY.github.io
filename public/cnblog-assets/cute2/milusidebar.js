@@ -51,10 +51,26 @@ function sidebar(c) {
     $title.before(noticeHtml);
   }
 
+  function removeBrokenSpanText() {
+    var targets = ["#blog-news", "#sidebar_news", "#sideBarMain", "#profile_block", "#info_table"];
+    targets.forEach(function (selector) {
+      var $root = $(selector);
+      if (!$root.length) return;
+      $root
+        .find("*")
+        .addBack()
+        .contents()
+        .filter(function () {
+          return this.nodeType === 3 && /\/span>/i.test((this.nodeValue || "").trim());
+        })
+        .remove();
+    });
+  }
+
   if (c.follow && !$("#cnb-follow-btn").length) {
     var $btn = $("<div id=\"cnb-follow-btn\" class=\"attention\"></div>");
     var $label = $("<span></span>");
-    $label.text("+\u52A0\u5173\u6CE8");
+    $label.text("+加关注");
     $btn.append($label);
     $btn.on("click", function () {
       if (typeof follow === "function") {
@@ -94,6 +110,10 @@ function sidebar(c) {
   sidebarInfoHtml += '</table><p class="catListTitle" style="margin-bottom:20px">' + (c.signature || "") + "</p></div>";
 
   $("#blog-news").append(sidebarInfoHtml);
+  removeBrokenSpanText();
+  setTimeout(removeBrokenSpanText, 200);
+  setTimeout(removeBrokenSpanText, 1000);
+  $("#cnb-portrait, #portrait").off("mouseenter.cleanBrokenSpan").on("mouseenter.cleanBrokenSpan", removeBrokenSpanText);
 
   if (!$("#cnb-calendar-title").length) {
     $("#blog-calendar").before('<h3 id="cnb-calendar-title" class="catListTitle">日历</h3>');
