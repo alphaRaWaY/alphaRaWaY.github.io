@@ -27,6 +27,10 @@ function sidebar(c) {
   var $ = window.jQuery;
   if (!$) return;
 
+  // Hard cut suspected legacy mojibake sources.
+  $("#p_b_follow").hide();
+  $("#profile_block").hide();
+
   var $title = $("#sidebar_news .catListTitle").first();
   if ($title.length) {
     $title.text("个人信息");
@@ -69,39 +73,20 @@ function sidebar(c) {
       var item = row[j] || {};
       var className = item.classname || "";
       var node = item.img
-        ? '<img class="icon ' +
-          className +
-          '" src="' +
-          item.img +
-          '" alt="' +
-          (item.title || "") +
-          '" style="width:1.5em;height:1.5em;vertical-align:middle;">'
-        : '<svg class="icon ' +
-          className +
-          '" aria-hidden="true"><use xlink:href="' +
-          (item.icon || "#icon-github1") +
-          '"></use></svg>';
+        ? '<img class="icon ' + className + '" src="' + item.img + '" alt="' + (item.title || "") + '" style="width:1.5em;height:1.5em;vertical-align:middle;">'
+        : '<svg class="icon ' + className + '" aria-hidden="true"><use xlink:href="' + (item.icon || "#icon-github1") + '"></use></svg>';
 
       if (item.click === false || !item.url) {
         sidebarInfoHtml += "<td>" + node + "</td>";
       } else {
         sidebarInfoHtml +=
-          '<td><a href="' +
-          item.url +
-          '" target="_blank" title="' +
-          (item.title || "") +
-          '">' +
-          node +
-          "</a></td>";
+          '<td><a href="' + item.url + '" target="_blank" title="' + (item.title || "") + '">' + node + "</a></td>";
       }
     }
     sidebarInfoHtml += "</tr>";
   }
 
-  sidebarInfoHtml +=
-    '</table><p class="catListTitle" style="margin-bottom:20px">' +
-    (c.signature || "") +
-    "</p></div>";
+  sidebarInfoHtml += '</table><p class="catListTitle" style="margin-bottom:20px">' + (c.signature || "") + "</p></div>";
 
   $("#blog-news").append(sidebarInfoHtml);
 
@@ -138,16 +123,4 @@ function sidebar(c) {
   $(".input_my_zzk").eq(1).parent().find("svg").attr("onclick", "google_go()");
   $(".input_my_zzk").eq(0).attr("placeholder", "搜索关键词~");
   $(".input_my_zzk").eq(1).attr("placeholder", "谷歌内搜索~");
-
-  // Fix residual mojibake text injected by cached legacy scripts.
-  $("#blog-news, #sideBarMain, #sidebar_news, #profile_block")
-    .find("*")
-    .contents()
-    .filter(function () {
-      return this.nodeType === 3 && /鎴戠殑鍗氬/.test(this.nodeValue || "");
-    })
-    .each(function () {
-      this.nodeValue = (this.nodeValue || "").replace(/鎴戠殑鍗氬/g, "我的博客");
-    });
 }
-
