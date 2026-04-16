@@ -1,7 +1,7 @@
-ï»¿function milusidebar(setting) {
+function milusidebar(setting) {
   var defaults = {
-    names: 'ä¸ªäººä¿¡æ¯',
-    notice: '<b>æ¬¢è¿å›å®¶ï¼</b>',
+    names: '¸öÈËĞÅÏ¢',
+    notice: '<b>»¶Ó­»Ø¼Ò£¡</b>',
     headerUrl: 'https://images.cnblogs.com/cnblogs_com/miluluyo/1765646/o_200519075219notice5.png',
     follow: '',
     sidebarInfo: [],
@@ -15,9 +15,9 @@
 }
 
 function sidebar(c) {
-  $('#sidebar_news .catListTitle').text('ä¸ªäººä¿¡æ¯');
+  $('#sidebar_news .catListTitle').text('¸öÈËĞÅÏ¢');
   $('#sidebar_news .catListTitle').before(
-    '<h3 class="catListTitle">å…¬å‘Š</h3>' +
+    '<h3 class="catListTitle">¹«¸æ</h3>' +
       '<div style="background:url(' + c.headerUrl + ');height:150px;background-size:auto 150px;background-repeat:no-repeat;background-position:center;margin-bottom:10px">' +
       '<p class="notice_title">' + c.notice + '</p>' +
       '</div>'
@@ -25,7 +25,7 @@ function sidebar(c) {
 
   if (c.follow) {
     $('#profile_block').before(
-      '<div class="attention" onclick="follow(\'' + c.follow + '\')"><span>+åŠ å…³æ³¨</span></div>'
+      '<div class="attention" onclick="follow(\'' + c.follow + '\')"><span>+¼Ó¹Ø×¢</span></div>'
     );
   }
 
@@ -62,7 +62,7 @@ function sidebar(c) {
     '</p>';
 
   $('#blog-news').append(sidebarInfoHtml);
-  $('#blog-calendar').before('<h3 class="catListTitle">æ—¥å†</h3>');
+  $('#blog-calendar').before('<h3 class="catListTitle">ÈÕÀú</h3>');
 
   if (typeof tippy === 'function' && c.popper_weixin) {
     tippy('.popper_weixin', {
@@ -86,6 +86,6 @@ function sidebar(c) {
     '<svg class="icon search_icon" aria-hidden="true" onclick="zzk_go()"><use xlink:href="#icon-sousuo"></use></svg>';
   $('.input_my_zzk').after(search);
   $('.input_my_zzk').eq(1).parent().find('svg').attr('onclick', 'google_go()');
-  $('.input_my_zzk').eq(0).attr('placeholder', 'æœç´¢å…³é”®è¯~');
-  $('.input_my_zzk').eq(1).attr('placeholder', 'è°·æ­Œå†…æœç´¢~');
+  $('.input_my_zzk').eq(0).attr('placeholder', 'ËÑË÷¹Ø¼ü´Ê~');
+  $('.input_my_zzk').eq(1).attr('placeholder', '¹È¸èÄÚËÑË÷~');
 }
