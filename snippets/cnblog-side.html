@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@encoding/public/cnblog-assets/cute2/tippy.min.css?v=20260414">
 <script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@encoding/public/cnblog-assets/cute2/jquery2.min.js?v=20260414"></script>
 <script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@encoding/public/cnblog-assets/cute2/tippy.js?v=20260414"></script>
-<script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@encoding/public/cnblog-assets/cute2/milusidebar.fixed.20260416.js?v=20260416-2"></script>
+<script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@encoding/public/cnblog-assets/cute2/milusidebar.fixed.20260416.v2.js?v=20260416-1"></script>
 <style>
 #sidebar_news .notice_title {
   margin: 0 !important;
@@ -27,17 +27,11 @@ milusidebar({
   follow: '23b07152-44a3-4e31-9d8c-08dddb4fdd26',
   sidebarInfo: [[
       { icon: '#icon-github1', url: 'https://github.com/alphaRaWaY', title: 'GitHub' },
-      { icon: '#icon-bilibili', url: 'https://space.bilibili.com/341508968', title: 'Bilibili' }
+      { img: 'https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@encoding/public/img/osu.svg?v=20260416-1', url: 'https://osu.ppy.sh/users/34346018', title: 'OSU!' },
+      { icon: '#icon-bilibili', url: 'https://space.bilibili.com/341508968', title: 'Bilibili' },
+      { img: 'https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@encoding/public/img/discord.svg?v=20260416-1', url: 'https://discord.com/users/alphaRaWaY_30823', title: 'Discord' }
   ]],
   signature: '六戒，戒着香华，不使用香料、佩戴花环或涂抹香水。',
   portrait: 'https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@encoding/public/img/avatar.png'
 })
-
-// Defensive fix: some cached legacy scripts may overwrite this label with mojibake.
-setTimeout(function () {
-  var myBlogLink = document.querySelector('#profile_block a');
-  if (myBlogLink) {
-    myBlogLink.textContent = '我的博客';
-  }
-}, 400);
 </script>
