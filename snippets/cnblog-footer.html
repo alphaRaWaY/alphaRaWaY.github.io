@@ -23,7 +23,7 @@
 <script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/star.js?v=20260414"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/OwO.min.css?v=20260414">
 <script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/OwO.min.js?v=20260414"></script>
-<script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/cute-cnblogs3.js?v=20260414"></script>
+<script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/cute-cnblogs3.js?v=20260416-2"></script>
 <script src="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/monitoring2.js?v=20260414"></script>
 
 <script>
@@ -33,7 +33,7 @@ window.CNBLOG_THEME_CONFIG = {
   enableMusic: false,
   musicDesktopOnly: false,
   playerTheme: '#2D8CF0',
-  notice: { enabled: true }
+  notice: { enabled: false }
 };
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/css/APlayer.min.css?v=20260414-8">
@@ -124,6 +124,22 @@ fetch(FRIENDS_JSON_URL, { cache: 'no-store' })
   .catch(function () {
     initMiluFrame(FRIENDS_FALLBACK);
   });
+
+// Hard disable legacy notice card injected by main.js retry logic.
+(function removeLegacyNoticeCard() {
+  var attempts = 0;
+  var timer = setInterval(function () {
+    var card = document.getElementById('cnb-notice-card');
+    if (card && card.parentNode) {
+      card.parentNode.removeChild(card);
+    }
+    attempts += 1;
+    if (attempts >= 20) clearInterval(timer);
+  }, 500);
+})();
 </script>
 
 <!-- 保留点击台词，不接入 mouse-click.js 鼠标拖尾特效 -->
+
+
+

@@ -40,3 +40,29 @@ div#home::after {
   --main-color: #2daebf;
 }
 */
+
+/* Fix sidebar search icon alignment */
+#sideBar .div_my_zzk {
+  position: relative !important;
+  height: auto !important;
+}
+
+#sideBar .div_my_zzk .input_my_zzk {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding-right: 42px !important;
+}
+
+#sideBar .div_my_zzk .search_icon {
+  position: absolute !important;
+  right: 12px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  width: 20px !important;
+  height: 20px !important;
+  float: none !important;
+}
+
