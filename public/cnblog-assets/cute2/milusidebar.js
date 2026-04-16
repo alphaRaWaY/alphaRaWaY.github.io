@@ -52,11 +52,16 @@ function sidebar(c) {
   }
 
   if (c.follow && !$("#cnb-follow-btn").length) {
-    $("#profile_block").before(
-      '<div id="cnb-follow-btn" class="attention" onclick="follow(\'' +
-        c.follow +
-        '\')"><span>+加关注</span></div>'
-    );
+    var $btn = $("<div id=\"cnb-follow-btn\" class=\"attention\"></div>");
+    var $label = $("<span></span>");
+    $label.text("+\u52A0\u5173\u6CE8");
+    $btn.append($label);
+    $btn.on("click", function () {
+      if (typeof follow === "function") {
+        follow(c.follow);
+      }
+    });
+    $("#profile_block").before($btn);
   }
 
   $("#cnb-side-info").remove();
@@ -124,3 +129,4 @@ function sidebar(c) {
   $(".input_my_zzk").eq(0).attr("placeholder", "搜索关键词~");
   $(".input_my_zzk").eq(1).attr("placeholder", "谷歌内搜索~");
 }
+
