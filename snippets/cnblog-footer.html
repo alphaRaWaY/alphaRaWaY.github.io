@@ -112,17 +112,6 @@ function initMiluFrame(friendList) {
   });
 }
 
-function enforceMyBlogLabel() {
-  var tryFix = function () {
-    var link = document.querySelector('#profile_block a');
-    if (link) link.textContent = '\u6211\u7684\u535A\u5BA2';
-  };
-  tryFix();
-  setTimeout(tryFix, 300);
-  setTimeout(tryFix, 1200);
-  setTimeout(tryFix, 2500);
-}
-
 fetch(FRIENDS_JSON_URL, { cache: 'no-store' })
   .then(function (res) {
     if (!res.ok) throw new Error('friends.json request failed');
@@ -131,11 +120,9 @@ fetch(FRIENDS_JSON_URL, { cache: 'no-store' })
   .then(function (list) {
     var normalized = normalizeFriends(list);
     initMiluFrame(normalized.length ? normalized : FRIENDS_FALLBACK);
-    enforceMyBlogLabel();
   })
   .catch(function () {
     initMiluFrame(FRIENDS_FALLBACK);
-    enforceMyBlogLabel();
   });
 </script>
 
