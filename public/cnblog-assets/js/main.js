@@ -272,7 +272,7 @@
       '<div class="cnb-notice-main">' +
       avatar +
       '<div class="cnb-notice-name">' +
-      (notice.name || "鎴戠殑鍗氬") +
+      (notice.name || "alphaRaWaY") +
       "</div>" +
       '<div class="cnb-notice-desc">' +
       (notice.desc || "") +
@@ -345,3 +345,4 @@
     boot()
   }
 })()
+
