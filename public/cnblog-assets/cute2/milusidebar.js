@@ -1,1 +1,91 @@
-﻿function milusidebar(setting){var c={"names":"楹嬮箍椴佸摕","notice":'<b>娓╅Θ鎻愮ず</b><span><a href="https://github.com/miluluyo/cute-cnblogs" target="_black">cute-cnblogs</a> &nbsp;鏍峰紡宸插紑婧</span><b style="margin-top: 3px;"><a style="font-size:10px" href="https://www.cnblogs.com/IsAlpaca/" target="_black">鏌ョ湅涓€鏈熸牱寮</a></b>',"headerUrl":"https://images.cnblogs.com/cnblogs_com/miluluyo/1765646/o_200519075219notice5.png","follow":"a1e76459-101d-47af-a8b6-08d523685c8c","sidebarInfo":[[{"icon":"#icon-github1","url":"https://github.com/miluluyo","title":"github"},{"icon":"#icon-weixin","url":"","title":"寰俊","classname":"popper_weixin","click":false},{"icon":"#icon-QQ","url":"http://wpa.qq.com/msgrd?v=3&uin=978761587&site=qq&menu=yes","title":"QQ"},{"icon":"#icon-juejin","url":"https://juejin.im/user/5d18adce5188256e98090e33","title":"鎺橀噾"}],[{"icon":"#icon-weibobangding","url":"https://www.weibo.com/6001406082/profile?topnav=1&wvr=6","title":"寰崥"},{"icon":"#icon-csdn","url":"https://blog.csdn.net/qq_39394518","title":"CSDN"},{"icon":"#icon-bilibili","url":"https://space.bilibili.com/100007925","title":"bilibili"},{"icon":"#icon-yuquemianlogo","url":"https://www.yuque.com/miluluyo","title":"璇泙"}]],"signature":"闈′笉鏈夊垵  椴滃厠鏈夌粓","popper_weixin":'<div class="popper_box"><p><b>寰堥珮鍏磋璇嗕綘楦瓇  (銇ワ健鈼曖礂岽椻棔锝?銇</b> </p><div class="popper_box_con"><div class="popper_box_con_li"><img src="https://images.cnblogs.com/cnblogs_com/miluluyo/1765646/o_200614064005qrcode.jpg" alt="">鍏紬鍙凤細楹嬮箍椴佸摕</div><div class="popper_box_con_li"><img src="https://images.cnblogs.com/cnblogs_com/miluluyo/1493340/t_wxh.jpg" alt="">寰俊鍙凤細s978761</div></div><p>锛堝姞鎴戣寰楀娉?鍗氬鍥?鍠旓級</div>',"portrait":"https://images.cnblogs.com/cnblogs_com/miluluyo/1765646/o_200515061851tx.jpg"};$.extend(c,setting);sidebar(c)}function sidebar(c){$("#sidebar_news .catListTitle").text("涓汉淇℃伅");$("#sidebar_news .catListTitle").before('<h3 class="catListTitle">鍏憡</h3><div style="background:url('+c.headerUrl+');height:150px;background-size: auto 150px;background-repeat: no-repeat;background-position:center;margin-bottom:10px"><p class="notice_title">'+c.notice+"</p></div>");var p_b_follow=$("#p_b_follow").html();$("#profile_block").before('<div class="attention" onclick="follow(\''+c.follow+"')\"><span>+鍔犲叧娉</span></div>");var le=c.sidebarInfo.length;var sidebarInfoHtml='<p class="catListTitle" style="font-weight:500;margin-top:10px;">'+c.names+'</p><table id="info_table" style="">';var sidebarInfo=c.sidebarInfo;for(var i=0;i<le;i++){sidebarInfoHtml+="<tr>";for(var j=0;j<sidebarInfo[i].length;j++){var item=sidebarInfo[i][j];var className=item.classname?item.classname:"";var node=item.img?'<img class="icon '+className+'" src="'+item.img+'" alt="'+(item.title||"")+'" style="width:1.5em;height:1.5em;vertical-align:middle;">':'<svg class="icon '+className+'" aria-hidden="true"><use xlink:href="'+item.icon+'"></use></svg>';if(item.click==false){sidebarInfoHtml+='<td>'+node+'</td>'}else{sidebarInfoHtml+='<td><a href="'+item.url+'" target="_black" title="'+item.title+'">'+node+'</a></td>'}}sidebarInfoHtml+="</tr>"}sidebarInfoHtml+='</table><p class="catListTitle" style="margin-bottom:20px">'+c.signature+"</p>";$("#blog-news").append(sidebarInfoHtml);$("#blog-calendar").before('<h3 class="catListTitle">鏃ュ巻</h3>');tippy(".popper_weixin",{content:c.popper_weixin,theme:"tomato",allowHTML:true,animation:"scale",duration:500,arrow:true,hideOnClick:"false",interactive:true});var portrait='<div id="portrait"><img src="'+c.portrait+'" /></div>';$("#profile_block").before(portrait);var search='<svg class="icon search_icon" aria-hidden="true" onclick="zzk_go()"><use xlink:href="#icon-sousuo"></use></svg >';$(".input_my_zzk").after(search);$(".input_my_zzk").eq(1).parent().find("svg").attr("onclick","google_go()");$(".input_my_zzk").eq(0).attr("placeholder","鎼滅储鍏抽敭璇崀");$(".input_my_zzk").eq(1).attr("placeholder","璋锋瓕鍐呮悳绱")};
+﻿function milusidebar(setting) {
+  var defaults = {
+    names: '个人信息',
+    notice: '<b>欢迎回家！</b>',
+    headerUrl: 'https://images.cnblogs.com/cnblogs_com/miluluyo/1765646/o_200519075219notice5.png',
+    follow: '',
+    sidebarInfo: [],
+    signature: '',
+    popper_weixin: '',
+    portrait: ''
+  };
+
+  var c = $.extend({}, defaults, setting || {});
+  sidebar(c);
+}
+
+function sidebar(c) {
+  $('#sidebar_news .catListTitle').text('个人信息');
+  $('#sidebar_news .catListTitle').before(
+    '<h3 class="catListTitle">公告</h3>' +
+      '<div style="background:url(' + c.headerUrl + ');height:150px;background-size:auto 150px;background-repeat:no-repeat;background-position:center;margin-bottom:10px">' +
+      '<p class="notice_title">' + c.notice + '</p>' +
+      '</div>'
+  );
+
+  if (c.follow) {
+    $('#profile_block').before(
+      '<div class="attention" onclick="follow(\'' + c.follow + '\')"><span>+加关注</span></div>'
+    );
+  }
+
+  var sidebarInfoHtml =
+    '<p class="catListTitle" style="font-weight:500;margin-top:10px;">' +
+    c.names +
+    '</p><table id="info_table" style="">';
+
+  var sidebarInfo = Array.isArray(c.sidebarInfo) ? c.sidebarInfo : [];
+  for (var i = 0; i < sidebarInfo.length; i++) {
+    sidebarInfoHtml += '<tr>';
+    for (var j = 0; j < sidebarInfo[i].length; j++) {
+      var item = sidebarInfo[i][j] || {};
+      var className = item.classname ? item.classname : '';
+      var node = item.img
+        ? '<img class="icon ' + className + '" src="' + item.img + '" alt="' + (item.title || '') + '" style="width:1.5em;height:1.5em;vertical-align:middle;">'
+        : '<svg class="icon ' + className + '" aria-hidden="true"><use xlink:href="' + (item.icon || '') + '"></use></svg>';
+
+      if (item.click === false) {
+        sidebarInfoHtml += '<td>' + node + '</td>';
+      } else {
+        sidebarInfoHtml +=
+          '<td><a href="' + (item.url || '#') + '" target="_blank" title="' + (item.title || '') + '">' +
+          node +
+          '</a></td>';
+      }
+    }
+    sidebarInfoHtml += '</tr>';
+  }
+
+  sidebarInfoHtml +=
+    '</table><p class="catListTitle" style="margin-bottom:20px">' +
+    (c.signature || '') +
+    '</p>';
+
+  $('#blog-news').append(sidebarInfoHtml);
+  $('#blog-calendar').before('<h3 class="catListTitle">日历</h3>');
+
+  if (typeof tippy === 'function' && c.popper_weixin) {
+    tippy('.popper_weixin', {
+      content: c.popper_weixin,
+      theme: 'tomato',
+      allowHTML: true,
+      animation: 'scale',
+      duration: 500,
+      arrow: true,
+      hideOnClick: 'false',
+      interactive: true
+    });
+  }
+
+  if (c.portrait) {
+    var portrait = '<div id="portrait"><img src="' + c.portrait + '" /></div>';
+    $('#profile_block').before(portrait);
+  }
+
+  var search =
+    '<svg class="icon search_icon" aria-hidden="true" onclick="zzk_go()"><use xlink:href="#icon-sousuo"></use></svg>';
+  $('.input_my_zzk').after(search);
+  $('.input_my_zzk').eq(1).parent().find('svg').attr('onclick', 'google_go()');
+  $('.input_my_zzk').eq(0).attr('placeholder', '搜索关键词~');
+  $('.input_my_zzk').eq(1).attr('placeholder', '谷歌内搜索~');
+}
