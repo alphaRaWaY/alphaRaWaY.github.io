@@ -4,20 +4,20 @@
   说明：以 cute-cnblogs 二期样式为基础，并留出你的个性化覆盖区域。
 */
 
-@import url('https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@encoding/public/cnblog-assets/cute2/cute-cnblogs2.css?v=20260414');
-@import url('https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@encoding/public/cnblog-assets/css/main.css?v=20260414');
+@import url('https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/cute-cnblogs2.css?v=20260414');
+@import url('https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/css/main.css?v=20260414');
 
 /* 可选：你的顶部背景图（如不需要可删除） */
 #blogTitle {
   background:
     linear-gradient(rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.42)),
-    url('https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@encoding/public/img/cover.jpg?v=20260414-4')
+    url('https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/img/cover.jpg?v=20260414-4')
     center center / cover no-repeat #222 !important;
 }
 
 body::after,
 div#home::after {
-  background-image: url('https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@encoding/public/img/background.png?v=20260414-4') !important;
+  background-image: url('https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/img/background.png?v=20260414-4') !important;
   background-size: cover !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -65,5 +65,6 @@ div#home::after {
   height: 20px !important;
   float: none !important;
 }
+
 
 
