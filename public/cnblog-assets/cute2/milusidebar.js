@@ -2,7 +2,7 @@
   var c = {
     names: "alphaRaWaY",
     notice:
-      "<b>\u6E29\u99A8\u63D0\u793A</b><span><a href=\"https://github.com/miluluyo/cute-cnblogs\" target=\"_blank\">cute-cnblogs</a> &nbsp;\u6837\u5F0F\u5DF2\u5F00\u6E90</span>",
+      '<b>欢迎回家！</b><span>不来玩玩<a href="https://osu.ppy.sh/" target="_blank">osu!</a>吗，一款棒到不行的音乐节奏游戏❤❤❤</span>',
     headerUrl: "https://images.cnblogs.com/cnblogs_com/miluluyo/1765646/o_200519075219notice5.png",
     follow: "",
     sidebarInfo: [[{ icon: "#icon-github1", url: "https://github.com", title: "GitHub" }]],
@@ -29,13 +29,13 @@ function sidebar(c) {
 
   var $title = $("#sidebar_news .catListTitle").first();
   if ($title.length) {
-    $title.text("\u4E2A\u4EBA\u4FE1\u606F");
+    $title.text("个人信息");
   }
 
   $("#cnb-side-notice").remove();
   var noticeHtml =
     '<div id="cnb-side-notice">' +
-    '<h3 class="catListTitle">\u516C\u544A</h3>' +
+    '<h3 class="catListTitle">公告</h3>' +
     '<div style="background:url(' +
     c.headerUrl +
     ');height:150px;background-size:auto 150px;background-repeat:no-repeat;background-position:center;margin-bottom:10px">' +
@@ -51,7 +51,7 @@ function sidebar(c) {
     $("#profile_block").before(
       '<div id="cnb-follow-btn" class="attention" onclick="follow(\'' +
         c.follow +
-        '\')"><span>+\u52A0\u5173\u6CE8</span></div>'
+        '\')"><span>+加关注</span></div>'
     );
   }
 
@@ -106,7 +106,7 @@ function sidebar(c) {
   $("#blog-news").append(sidebarInfoHtml);
 
   if (!$("#cnb-calendar-title").length) {
-    $("#blog-calendar").before('<h3 id="cnb-calendar-title" class="catListTitle">\u65E5\u5386</h3>');
+    $("#blog-calendar").before('<h3 id="cnb-calendar-title" class="catListTitle">日历</h3>');
   }
 
   if (typeof window.tippy === "function" && c.popper_weixin) {
@@ -136,6 +136,18 @@ function sidebar(c) {
   });
 
   $(".input_my_zzk").eq(1).parent().find("svg").attr("onclick", "google_go()");
-  $(".input_my_zzk").eq(0).attr("placeholder", "\u641C\u7D22\u5173\u952E\u8BCD~");
-  $(".input_my_zzk").eq(1).attr("placeholder", "\u8C37\u6B4C\u5185\u641C\u7D22~");
+  $(".input_my_zzk").eq(0).attr("placeholder", "搜索关键词~");
+  $(".input_my_zzk").eq(1).attr("placeholder", "谷歌内搜索~");
+
+  // Fix residual mojibake text injected by cached legacy scripts.
+  $("#blog-news, #sideBarMain, #sidebar_news, #profile_block")
+    .find("*")
+    .contents()
+    .filter(function () {
+      return this.nodeType === 3 && /鎴戠殑鍗氬/.test(this.nodeValue || "");
+    })
+    .each(function () {
+      this.nodeValue = (this.nodeValue || "").replace(/鎴戠殑鍗氬/g, "我的博客");
+    });
 }
+
