@@ -30,7 +30,7 @@ function sidebar(c) {
   // Hard cut suspected legacy mojibake sources.
   $("#p_b_follow").hide();
   $("#profile_block").hide();
-  $("#profile_block a").text("我的博客");
+  $("#profile_block a").text("my blog");
 
   var $title = $("#sidebar_news .catListTitle").first();
   if ($title.length) {
