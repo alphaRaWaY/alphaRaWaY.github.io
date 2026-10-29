@@ -183,3 +183,25 @@ html:has(#darkly) :is(#mainContent, #cnblogs_post_body) {
 #mainContent :is(#post_next_prev, #author_profile, #under_post_news, #under_post_kb) a {
   color: var(--article-link) !important;
 }
+
+/* Category badges use the same theme surface as article code cards. */
+#mainContent #BlogPostCategory a {
+  display: inline-block;
+  height: auto;
+  padding: 0.15em 0.8em;
+  border: 1px solid var(--article-border) !important;
+  border-radius: 0.7em;
+  background: var(--article-card) !important;
+  color: var(--article-text) !important;
+  line-height: 1.6 !important;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+#mainContent #BlogPostCategory a:hover,
+#mainContent #BlogPostCategory a:focus-visible {
+  border-color: var(--article-link) !important;
+  color: var(--article-link) !important;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
