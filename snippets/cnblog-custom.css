@@ -4,7 +4,7 @@
   说明：以 cute-cnblogs 二期样式为基础，并留出你的个性化覆盖区域。
 */
 
-@import url('https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/cute-cnblogs2.css?v=20261029-2');
+@import url('https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/cute-cnblogs2.css?v=20261030-1');
 @import url('https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/css/main.css?v=20260414');
 
 /* 可选：你的顶部背景图（如不需要可删除） */
@@ -70,7 +70,9 @@ div#home::after {
 
 
 /* Article typography and surfaces follow the active Cute2 stylesheet. */
+#mainContent,
 #cnblogs_post_body {
+  --article-font-size: clamp(16px, 1rem, 18px);
   --article-text: #283740;
   --article-link: #176777;
   --article-card: rgba(244, 250, 251, 0.88);
@@ -81,13 +83,14 @@ div#home::after {
   --code-string: #276642;
   --code-number: #8b4e22;
   --code-function: #155c8a;
-  font-size: max(16px, 1rem) !important;
+  font-size: var(--article-font-size) !important;
   font-weight: 400;
   line-height: 1.85;
   color: var(--article-text) !important;
 }
 
-html:has(#reading) #cnblogs_post_body {
+html:has(#reading) :is(#mainContent, #cnblogs_post_body) {
+  --article-font-size: clamp(16px, 1rem, 18px);
   --article-text: #353329;
   --article-link: #346765;
   --article-card: rgba(250, 246, 232, 0.90);
@@ -95,7 +98,8 @@ html:has(#reading) #cnblogs_post_body {
   --article-quote: rgba(241, 236, 215, 0.90);
 }
 
-html:has(#darkly) #cnblogs_post_body {
+html:has(#darkly) :is(#mainContent, #cnblogs_post_body) {
+  --article-font-size: clamp(16px, 1rem, 18px);
   --article-text: #e5edf2;
   --article-link: #8bdde7;
   --article-card: rgba(25, 40, 48, 0.90);
@@ -111,7 +115,7 @@ html:has(#darkly) #cnblogs_post_body {
 #cnblogs_post_body p,
 #cnblogs_post_body ol li,
 #cnblogs_post_body ul li {
-  font-size: inherit !important;
+  font-size: var(--article-font-size) !important;
   font-weight: 400 !important;
   line-height: 1.85 !important;
   color: var(--article-text) !important;
@@ -124,6 +128,7 @@ html:has(#darkly) #cnblogs_post_body {
 }
 
 #cnblogs_post_body :is(ol, ul) {
+  font-size: var(--article-font-size) !important;
   margin: 0.7em 0;
   padding-inline-start: 1.8em;
 }
@@ -183,10 +188,11 @@ html:has(#darkly) #cnblogs_post_body {
   padding: 0.1em 0.35em;
   border: 1px solid var(--article-border);
   border-radius: 5px;
-  background: var(--article-card);
-  color: var(--article-text);
+  background: var(--article-card) !important;
+  color: var(--article-text) !important;
   font-family: Consolas, 'Cascadia Code', monospace;
-  font-size: 1em;
+  font-size: 1em !important;
+  font-weight: 400;
 }
 
 #cnblogs_post_body pre code :is(.hljs-comment, .hljs-quote) { color: var(--code-comment) !important; }
@@ -211,4 +217,35 @@ html:has(#darkly) #cnblogs_post_body {
 #cnblogs_post_body blockquote :is(p, li, span, em) {
   color: var(--article-text) !important;
   font-weight: 400;
+}
+
+/* Preserve Markdown deletion semantics removed by the template reset. */
+#cnblogs_post_body :is(del, s),
+#cnblogs_post_body :is(del, s) * {
+  text-decoration-line: line-through !important;
+  text-decoration-color: currentColor !important;
+  text-decoration-thickness: 0.075em;
+  font-weight: inherit;
+}
+
+/* Keep article navigation and related reading close to the body reading size. */
+#mainContent :is(#post_next_prev, #author_profile, #BlogPostCategory,
+  #EntryTag, #blog_post_info, #under_post_news, #under_post_kb,
+  #blog-comments-placeholder, .postDesc, .postDesc2, .c_b_p_desc) {
+  font-size: max(15px, calc(var(--article-font-size) - 2px)) !important;
+  line-height: 1.75 !important;
+  color: var(--article-text) !important;
+  font-weight: 400;
+}
+
+#mainContent :is(#post_next_prev, #author_profile, #BlogPostCategory,
+  #EntryTag, #under_post_news, #under_post_kb, .postDesc, .postDesc2) :is(a, span, p, li) {
+  font-size: inherit !important;
+  line-height: inherit !important;
+  font-weight: 400;
+  color: inherit;
+}
+
+#mainContent :is(#post_next_prev, #author_profile, #under_post_news, #under_post_kb) a {
+  color: var(--article-link) !important;
 }
