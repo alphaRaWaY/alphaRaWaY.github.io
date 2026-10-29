@@ -1,10 +1,10 @@
-﻿/*
+/*
   博客园：页面定制CSS代码
   使用方式：将本文件内容粘贴到 博客园后台 -> 设置 -> 页面定制CSS代码
   说明：以 cute-cnblogs 二期样式为基础，并留出你的个性化覆盖区域。
 */
 
-@import url('https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/cute-cnblogs2.css?v=20260414');
+@import url('https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/cute-cnblogs2.css?v=20261029-1');
 @import url('https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/css/main.css?v=20260414');
 
 /* 可选：你的顶部背景图（如不需要可删除） */
@@ -68,3 +68,35 @@ div#home::after {
 
 
 
+
+/* Article ordered lists: readable size, weight, and contrast. */
+#cnblogs_post_body ol {
+  margin: 0.75em 0;
+  padding-inline-start: 2em;
+}
+
+#cnblogs_post_body ol li {
+  list-style-type: decimal;
+  font-size: max(16px, 1rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.85 !important;
+  color: #374151 !important;
+  margin-block: 0.35em;
+}
+
+#cnblogs_post_body ol li::marker {
+  color: #374151;
+  font-weight: 500;
+}
+
+#cnblogs_post_body ol li > p {
+  font-size: inherit !important;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+#cnblogs_post_body ol ol,
+#cnblogs_post_body ol ul {
+  margin-block: 0.25em;
+}
