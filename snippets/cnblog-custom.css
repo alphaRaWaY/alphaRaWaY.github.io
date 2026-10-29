@@ -4,7 +4,7 @@
   说明：以 cute-cnblogs 二期样式为基础，并留出你的个性化覆盖区域。
 */
 
-@import url('https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/cute-cnblogs2.css?v=20261029-1');
+@import url('https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/cute2/cute-cnblogs2.css?v=20261029-2');
 @import url('https://cdn.jsdelivr.net/gh/alphaRaWaY/alphaRaWaY.github.io@main/public/cnblog-assets/css/main.css?v=20260414');
 
 /* 可选：你的顶部背景图（如不需要可删除） */
@@ -69,34 +69,146 @@ div#home::after {
 
 
 
-/* Article ordered lists: readable size, weight, and contrast. */
-#cnblogs_post_body ol {
-  margin: 0.75em 0;
-  padding-inline-start: 2em;
+/* Article typography and surfaces follow the active Cute2 stylesheet. */
+#cnblogs_post_body {
+  --article-text: #283740;
+  --article-link: #176777;
+  --article-card: rgba(244, 250, 251, 0.88);
+  --article-border: rgba(45, 142, 157, 0.42);
+  --article-quote: rgba(232, 244, 245, 0.88);
+  --code-comment: #506b59;
+  --code-keyword: #75419a;
+  --code-string: #276642;
+  --code-number: #8b4e22;
+  --code-function: #155c8a;
+  font-size: max(16px, 1rem) !important;
+  font-weight: 400;
+  line-height: 1.85;
+  color: var(--article-text) !important;
 }
 
-#cnblogs_post_body ol li {
-  list-style-type: decimal;
-  font-size: max(16px, 1rem) !important;
+html:has(#reading) #cnblogs_post_body {
+  --article-text: #353329;
+  --article-link: #346765;
+  --article-card: rgba(250, 246, 232, 0.90);
+  --article-border: rgba(127, 131, 88, 0.48);
+  --article-quote: rgba(241, 236, 215, 0.90);
+}
+
+html:has(#darkly) #cnblogs_post_body {
+  --article-text: #e5edf2;
+  --article-link: #8bdde7;
+  --article-card: rgba(25, 40, 48, 0.90);
+  --article-border: rgba(117, 205, 218, 0.50);
+  --article-quote: rgba(33, 53, 62, 0.90);
+  --code-comment: #b3cbb9;
+  --code-keyword: #d8b7ff;
+  --code-string: #b1dfbd;
+  --code-number: #f0c595;
+  --code-function: #a1d8ff;
+}
+
+#cnblogs_post_body p,
+#cnblogs_post_body ol li,
+#cnblogs_post_body ul li {
+  font-size: inherit !important;
   font-weight: 400 !important;
   line-height: 1.85 !important;
-  color: #374151 !important;
-  margin-block: 0.35em;
+  color: var(--article-text) !important;
 }
 
-#cnblogs_post_body ol li::marker {
-  color: #374151;
-  font-weight: 500;
-}
-
-#cnblogs_post_body ol li > p {
-  font-size: inherit !important;
-  font-weight: inherit;
-  line-height: inherit;
+#cnblogs_post_body :is(p, li, blockquote) strong,
+#cnblogs_post_body :is(p, li, blockquote) b {
+  font-weight: 700;
   color: inherit;
 }
 
-#cnblogs_post_body ol ol,
-#cnblogs_post_body ol ul {
-  margin-block: 0.25em;
+#cnblogs_post_body :is(ol, ul) {
+  margin: 0.7em 0;
+  padding-inline-start: 1.8em;
+}
+
+#cnblogs_post_body ol > li { list-style-type: decimal; }
+#cnblogs_post_body ul > li { list-style-type: disc; }
+#cnblogs_post_body li { margin-block: 0.3em; }
+#cnblogs_post_body li::marker { color: var(--article-text); font-weight: 500; }
+#cnblogs_post_body li :is(ol, ul) { margin-block: 0.2em; }
+#cnblogs_post_body li > p { margin-block: 0.25em; }
+
+#cnblogs_post_body a {
+  color: var(--article-link) !important;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+#cnblogs_post_body pre,
+#cnblogs_post_body .cnblogs_code {
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 1em 0;
+  padding: 1em 1.15em !important;
+  overflow-x: auto;
+  border: 1px solid var(--article-border) !important;
+  border-radius: 12px;
+  background: var(--article-card) !important;
+  color: var(--article-text) !important;
+  font-size: inherit !important;
+  line-height: 1.7 !important;
+  box-shadow: 0 3px 14px rgba(20, 45, 55, 0.06);
+}
+
+#cnblogs_post_body pre code,
+#cnblogs_post_body pre code *,
+#cnblogs_post_body .cnblogs_code :is(pre, code, span) {
+  font-family: Consolas, 'Cascadia Code', monospace !important;
+  font-size: inherit !important;
+  font-weight: 400;
+  line-height: inherit !important;
+  color: var(--article-text) !important;
+  background: transparent !important;
+  text-shadow: none !important;
+}
+
+/* The outer card owns spacing and background, including legacy code markup. */
+#cnblogs_post_body pre code,
+#cnblogs_post_body .cnblogs_code pre {
+  display: block;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  box-shadow: none;
+}
+
+#cnblogs_post_body :not(pre) > code:not(.hljs) {
+  padding: 0.1em 0.35em;
+  border: 1px solid var(--article-border);
+  border-radius: 5px;
+  background: var(--article-card);
+  color: var(--article-text);
+  font-family: Consolas, 'Cascadia Code', monospace;
+  font-size: 1em;
+}
+
+#cnblogs_post_body pre code :is(.hljs-comment, .hljs-quote) { color: var(--code-comment) !important; }
+#cnblogs_post_body pre code :is(.hljs-keyword, .hljs-selector-tag, .hljs-literal) { color: var(--code-keyword) !important; }
+#cnblogs_post_body pre code :is(.hljs-string, .hljs-regexp, .hljs-attr) { color: var(--code-string) !important; }
+#cnblogs_post_body pre code :is(.hljs-number, .hljs-symbol, .hljs-bullet) { color: var(--code-number) !important; }
+#cnblogs_post_body pre code :is(.hljs-title, .hljs-built_in, .hljs-type) { color: var(--code-function) !important; }
+
+#cnblogs_post_body blockquote {
+  margin: 1em 0;
+  padding: 0.75em 1em;
+  border: 1px solid var(--article-border) !important;
+  border-inline-start: 4px solid var(--article-link) !important;
+  border-radius: 0 10px 10px 0;
+  background: var(--article-quote) !important;
+  color: var(--article-text) !important;
+  font-size: inherit !important;
+  font-style: normal;
+  line-height: 1.85;
+}
+
+#cnblogs_post_body blockquote :is(p, li, span, em) {
+  color: var(--article-text) !important;
+  font-weight: 400;
 }
